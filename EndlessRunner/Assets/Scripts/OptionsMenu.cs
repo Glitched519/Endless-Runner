@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour {
 
-    public AudioMixer audioMixer;
-    public CameraShake shake;
+    public Slider volumeSlider;
     public Dropdown resolutionDropdown;
 
     Resolution[] resolutions;
@@ -51,4 +49,10 @@ public class OptionsMenu : MonoBehaviour {
     {
         Screen.fullScreen = isFullscreen;
     }
+
+    public void SetVolume()
+    {
+        AudioListener.volume = volumeSlider.value * 1;
+    }
+
 }
