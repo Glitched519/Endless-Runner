@@ -6,6 +6,8 @@ public class OptionsMenu : MonoBehaviour {
 
     public Slider volumeSlider;
     public Dropdown resolutionDropdown;
+    public CameraShake shake;
+    public Toggle toggle;
 
     Resolution[] resolutions;
 
@@ -53,6 +55,19 @@ public class OptionsMenu : MonoBehaviour {
     public void SetVolume()
     {
         AudioListener.volume = volumeSlider.value * 1;
+    }
+
+    public void SetCameraShake(bool isShaking)
+    {
+        CameraShake.IsShaking = isShaking;
+        
+       /* if (isShaking == false)
+        {
+            shake.shakeIntensity = 0;
+            shake.shakeIntensity -= 0.001f * Time.deltaTime;
+            shake.counter = 0;
+            shake.counter -= 1;
+        }*/
     }
 
 }
