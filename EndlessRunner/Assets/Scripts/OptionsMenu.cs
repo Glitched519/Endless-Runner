@@ -6,13 +6,19 @@ public class OptionsMenu : MonoBehaviour {
 
     public Slider volumeSlider;
     public Dropdown resolutionDropdown;
-    public CameraShake shake;
-    public Toggle toggle;
+
+    //public Toggle toggle = GameObject.FindGameObjectsWithTag("CameraShakeToggle").GetComponent<Toggle>();
+    //public Toggle toggle;
+    public static GameObject gameobject; 
+    public Toggle toggle; 
 
     Resolution[] resolutions;
 
     void Start()
     {
+        toggle =  GameObject.FindGameObjectWithTag("ShakeToggle").GetComponent<Toggle>();
+        
+
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -57,17 +63,19 @@ public class OptionsMenu : MonoBehaviour {
         AudioListener.volume = volumeSlider.value * 1;
     }
 
-    public void SetCameraShake(bool isShaking)
+    public void SetCameraShake()
     {
-        CameraShake.IsShaking = isShaking;
-        
-       /* if (isShaking == false)
+        if (toggle.isOn)
         {
-            shake.shakeIntensity = 0;
-            shake.shakeIntensity -= 0.001f * Time.deltaTime;
-            shake.counter = 0;
-            shake.counter -= 1;
-        }*/
+
+            CameraShake.active = true;
+            Debug.Log("Shake toggle is on.");
+        }
+        else
+        {
+            Debug.Log("Shake toggle is off.");
+        }
+        
     }
 
 }

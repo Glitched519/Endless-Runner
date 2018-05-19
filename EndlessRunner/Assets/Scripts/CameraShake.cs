@@ -5,10 +5,12 @@ public class CameraShake : MonoBehaviour {
     Vector3 originPosition;
     Quaternion originRotation;
     [SerializeField]
-    public float shakeIntensity = 0.001f;
+    public static float shakeIntensity = 0.001f;
     [SerializeField]
-    public int counter = 0;
-    public bool active = false;
+    public static int counter = 0;
+    public static bool active;
+
+
 	// Use this for initialization
 	public void Start () {
         originPosition = transform.position;
