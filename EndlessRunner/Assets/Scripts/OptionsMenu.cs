@@ -63,18 +63,10 @@ public class OptionsMenu : MonoBehaviour {
         AudioListener.volume = volumeSlider.value * 1;
     }
 
-    public void SetCameraShake()
+    public void SetCameraShake(bool isShaking)
     {
-        if (toggle.isOn)
-        {
-
-            CameraShake.active = true;
-            Debug.Log("Shake toggle is on.");
-        }
-        else
-        {
-            Debug.Log("Shake toggle is off.");
-        }
+        CameraShake.active = isShaking;
+        //toggle.isOn = isShaking;
         
     }
 

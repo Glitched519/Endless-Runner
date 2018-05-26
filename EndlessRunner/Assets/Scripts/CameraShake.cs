@@ -24,7 +24,7 @@ public class CameraShake : MonoBehaviour {
 
     // Update is called once per frame
     public void Update() {
-        if (active)
+        if (!active)
         {
             if (counter == 4)
             {
