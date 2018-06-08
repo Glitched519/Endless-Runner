@@ -16,9 +16,6 @@ public class OptionsMenu : MonoBehaviour {
 
     void Start()
     {
-        toggle =  GameObject.FindGameObjectWithTag("ShakeToggle").GetComponent<Toggle>();
-        
-
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -40,6 +37,8 @@ public class OptionsMenu : MonoBehaviour {
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        toggle = GameObject.FindGameObjectWithTag("ShakeToggle").GetComponent<Toggle>();
     }
 
     public void SetResolution(int resolutionIndex)
